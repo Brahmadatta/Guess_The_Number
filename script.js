@@ -18,6 +18,10 @@ const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
 
+const changeBackGroundColor = function (color) {
+  document.querySelector('body').style.backgroundColor = color;
+};
+
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
@@ -27,7 +31,8 @@ document.querySelector('.check').addEventListener('click', function () {
     displayMessage('Enter Valid Number 🛑');
     //when player wins
   } else if (guess === secretNumber) {
-    document.querySelector('body').style.backgroundColor = '#60b347';
+    //document.querySelector('body').style.backgroundColor = '#60b347';
+    changeBackGroundColor('#60b347');
     document.querySelector('.number').textContent = secretNumber;
 
     document.querySelector('.number').style.width = '30rem';
@@ -49,7 +54,8 @@ document.querySelector('.check').addEventListener('click', function () {
       displayMessage(guess > secretNumber ? 'Too High!!!' : 'Too Low!!!');
       score--;
       document.querySelector('.score').textContent = score;
-      document.querySelector('body').style.backgroundColor = '#f40404';
+      //document.querySelector('body').style.backgroundColor = '#f40404';
+      changeBackGroundColor('#f40404');
     } else {
       //   document.querySelector('.message').textContent = 'You lost the game!!!';
       displayMessage('You lost the game!!!');
@@ -90,7 +96,8 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
 
-  document.querySelector('body').style.backgroundColor = '#222';
+  //document.querySelector('body').style.backgroundColor = '#222';
+  changeBackGroundColor('#222');
   document.querySelector('.number').style.width = '15rem';
   //   document.querySelector('.message').textContent = 'start guessing...';
   displayMessage('start guessing...');
